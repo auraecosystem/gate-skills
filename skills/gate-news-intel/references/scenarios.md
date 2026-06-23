@@ -14,7 +14,7 @@
 
 **Prompts**: "What events happened around ETH recently", "event timeline for SOL"
 
-**Behavior**: Events + news + sentiment; causal narrative in Section 2 before Section 4. Optional `get-event-detail` only if `event_id` is known. For price-move attribution queries like "Why did BTC crash", use `market_move_explain` (Scenario 7).
+**Behavior**: Events + news + sentiment; causal narrative in Section 2 before Section 4. With shortcuts (>= 0.7.6) and `event_id`, use `+event-explain --event-id` (no separate `get-event-detail`). Legacy path: `get-event-detail` only when `event_id` is known. For price-move attribution like "Why did BTC crash", use `market_move_explain` (Scenario 7).
 
 ## Scenario 3 — Listings / announcements
 

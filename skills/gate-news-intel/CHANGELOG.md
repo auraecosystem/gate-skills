@@ -1,5 +1,34 @@
 # Changelog — gate-news-intel
 
+## 2026.6.22-1
+
+- `market_move_explain` (Step 2): spell out full CLI paths, esp. `gate-cli news events explain-market-move` (under `news events`, NOT `news feed`), to prevent the agent from mis-querying under `news feed`. Doc-only; playbook unchanged.
+
+## 2026.6.12-5
+
+- News shortcut blocks: `arg_enums.time-range: [1h, 24h, 7d]` (+brief, +event-explain, +community-scan, intel_plus_market).
+- `slot_registry.time_range` documents shortcut clamp vs legacy 30d.
+
+## 2026.6.12-4
+
+- `intel_plus_market`: merge duplicate YAML `notes` keys (PyYAML kept only the last block; execution-order note was lost).
+
+## 2026.6.12-3
+
+- `event_explain`: `args_when` uses `when: event_id_present`.
+- `intel_plus_market`: explicit `shortcut_block_order` and notes (news then info).
+
+## 2026.6.12-2
+
+- `event_explain`: `args_when` with `--event-id`; fix replaces list; keep `social_sentiment` outside shortcut replace set.
+- `market_wide_intel`: explicit `+market-overview` shortcut block.
+- Corrected JSON field mapping in `_shared/cli-version-routing.md`.
+
+## 2026.6.12-1
+
+- Added playbook shortcuts: `news +brief`, `+event-explain`, `+community-scan`; `intel_plus_market` uses `+brief` + `+coin-overview`.
+- Step 0.5 reads `cli_version` from preflight JSON; `shortcuts_enabled` when >= 0.7.6.
+
 ## 2026.5.13-1
 
 - Added `market_move_explain` playbook: leverages `gate-cli news events explain-market-move` (Tavily real-time search + internal event pool) for price-move attribution queries. Companion commands: `get-market-snapshot`, `get-orderbook`, `get-technical-analysis`, `get-coin-info`, and community (`search-x` + `get-social-sentiment`) for non-BTC.
